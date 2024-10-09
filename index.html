@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>脱獄ごっこPRO 武器IDリスト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .weapon-list {
+            margin: 20px auto;
+            padding: 10px;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .search-container input {
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            font-size: 14px; 
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .copy-id {
+            color: #007BFF;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .copy-id:hover {
+            color: #0056b3;
+        }
+
+        /* スマホ用メディアクエリ */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .weapon-list {
+                padding: 5px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            th, td {
+                font-size: 12px;
+                padding: 6px; 
+            }
+            .search-container input {
+                font-size: 14px; 
+            }
+        }
+    </style>
+    <script>
+        const weapons = [
+            { name: "パンチ", ids: ["7566421188222735354", "FA530169 FB530169", "1"] },
+            { name: "人狼棒", ids: ["7417411047359770638", "0EF0EF66 0CF0EF66", "2"] },
+            { name: "ラケット", ids: ["6558252613970925570", "0298035B 0198035B", "3"] },
+            { name: "水鉄砲", ids: ["8559582678587391772", "1CBFC976 18BFC976", "4"] },
+            { name: "グレネード", ids: ["5498138235623002013", "9D4F4D4C 984F4D4C", "5"] },
+            { name: "足止め(市民)", ids: ["8195448612344042769", "1115BC71 1715BC71", "6"] },
+            { name: "足止め(人狼)", ids: ["8195448608049075473", "1115BC71 1615BC71", "7"] },
+            { name: "テレポート", ids: ["8754357937972820513", "21BA7D79 29BA7D79", "8"] },
+            { name: "変身", ids: ["4368176234348077357", "2DE19E3C 24E19E3C", "9"] },
+            { name: "インパルス", ids: ["4720532735758873481", "89B38241 83B38241", "10"] },
+            { name: "大砲", ids: ["5874208436891509112", "78618551 73618551", "11"] },
+            { name: "リモボ", ids: ["7358743112637710803", "D3811F66 DF811F66", "12"] },
+            { name: "シャボン銃", ids: ["4788831073787533424", "70587542 7D587542", "13"] },
+            { name: "火炎銃", ids: ["4644890888415606697", "A9F77540 A7F77540", "14"] },
+            { name: "アイス", ids: ["7118627438276014591", "FF71CA62 F071CA62", "15"] },
+            { name: "宝箱発見", ids: ["5051291113648409233", "91CA1946 81CA1946", "16"] },
+            { name: "旧サイレン", ids: ["4877354266788878284", "CCD7AF43 DDD7AF43", "17"] },
+            { name: "旧看守棒", ids: ["8356735350289798804", "9416F973 8616F973", "18"] },
+            { name: "新サイレン", ids: ["4804625541144343914", "6A75AD42 7975AD42", "19"] },
+            { name: "新看守棒", ids: ["6339221200358174732", "0C70F957 1870F957", "20"] },
+            { name: "囚人発見器", ids: ["1789885589", "95 7C AF 6A"] },
+            { name: "看守武器", ids: ["1254340962", "62 B9 C3 4A"] },
+            { name: "SAI入手器", ids: ["1031339950", "AE FF 78 3D"] },
+            { name: "回転斬り", ids: ["1779273765", "25 90 0D 6A"] },
+            { name: "宝箱発見器", ids: ["1031339950", "AE FF 78 3D"] },
+            { name: "回復アイス", ids: ["1735305744", "10 AA 6E 67"] },
+            { name: "階段,壁", ids: ["1804833662", "7E 93 93 6B"] },
+            { name: "火の玉銃,宝箱発見器", ids: ["1031339950", "AE FF 78 3D"] },
+            { name: "回復クラゲ", ids: ["2029965220", "A4 CF FE 78"] },
+            { name: "黒煙", ids: ["1661681452", "2C 3F 0B 63"] },
+            { name: "AIワープ", ids: ["1476720745", "69 F8 04 58"] },
+            { name: "大砲", ids: ["1088908112", "50 6B E7 40"] },
+            { name: "バリア系のspai", ids: ["1804833662"] },
+            { name: "流星群", ids: ["1515282994"] },
+            { name: "火の玉(フジフジ)", ids: ["6804439310506277484", "6C3A6E5E 80396E5E", "1004"] },
+            { name: "無敵貫通火の玉", ids: ["8164418693393929328", "70D44D71 8BD74D71", "1019"] },
+            { name: "無敵貫通銃", ids: ["5298446192165247164", "BCD88749 BDDC8749", "1025"] },
+            { name: "近接拘束(フジフジ)", ids: ["8547206468328080047", "AFC29D76 FFC69D76", "1104"] },
+            { name: "岩(フジフジ)", ids: ["8501659439655023370", "0AF3FB75 37F6FB75", "1341"] },
+            { name: "黒煙(フジフジ)", ids: ["8517266019370975593", "9EFD7C63 8EFD7C63", "1344"] },
+            { name: "凍結ブロック", ids: ["8749942546187494737", "00B84A71 00D84A71", "1345"] }
+        ];
+
+        function filterWeapons() {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const filteredWeapons = weapons.filter(weapon => weapon.name.toLowerCase().includes(searchInput));
+
+            const weaponTableBody = document.getElementById("weaponTableBody");
+            weaponTableBody.innerHTML = "";
+
+            filteredWeapons.forEach(weapon => {
+                const row = document.createElement("tr");
+                const nameCell = document.createElement("td");
+                const idCell = document.createElement("td");
+
+                nameCell.textContent = weapon.name;
+                idCell.innerHTML = weapon.ids.map(id => `<span class="copy-id" onclick="copyToClipboard('${id}')">${id}</span>`).join(", ");
+
+                row.appendChild(nameCell);
+                row.appendChild(idCell);
+                weaponTableBody.appendChild(row);
+            });
+        }
+
+        function copyToClipboard(id) {
+            navigator.clipboard.writeText(id).then(() => {
+                alert("コピーしました: " + id);
+            }).catch(err => {
+                alert("コピーに失敗しました: " + err);
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="weapon-list">
+        <h1>脱獄ごっこPRO 武器IDリスト</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" onkeyup="filterWeapons()" placeholder="武器名で検索...">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>武器名</th>
+                    <th>武器ID(10進数, 16進数, ID)</th>
+                </tr>
+            </thead>
+            <tbody id="weaponTableBody">
+            </tbody>
+        </table>
+    </div>
+    <script>
+        filterWeapons();
+    </script>
+</body>
+</html>
